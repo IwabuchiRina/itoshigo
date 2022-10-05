@@ -11,8 +11,42 @@ categories = [
 'マウス、デグー、ヤマネ',
 'モルモット、チンチラ',
 'モモンガ、ヨツユビハリネズミ、ヒメハリテンレック',
-'ミーアキャット、プレーリードッグ、シマリス、リチャードソンジリス',
+'その他',
+]
+pet_types = [
+  {
+    name:'ハムスター',
+    types:['カラー','ゴールデン','キンクマ','ジャンガリアン','チャイニーズ','キャンベル','ロボロフスキー']
+  },
+  {
+    name:'マウス、デグー、ヤマネ',
+    types:['アフリカヤマネ','ピグミーマウス','オオミユビトビネズミ','カイロトゲマウス','カラージャービル','デグー','レミング','ハツカネズミパンダマウス','ピグミージェルボア','ファットテールジャービル','ファンシーマウス']
+  },
+  {
+    name:'モルモット、チンチラ',
+    types:['イングリッシュ','テディ','アビシニアン','クレスッド','シェルティ','ペルビアン','テッセル','レックス','スキニーギニアピッグ','コロネット','メリノ','アルパカモルモット']
+  },
+  {
+    name:'モモンガ、ヨツユビハリネズミ、ヒメハリテンレック',
+    types:['アメリカ','フクロ']
+  },
+  {
+    name:'その他',
+    types:['ミーアキャット','プレーリードッグ','シマリス','リチャードソンジリス']
+  },
 ]
 
-categorise.each do |category|
-endっっっっs
+categories.each do |category| 
+  Category.create!(name: category)
+end
+
+pet_types.each do |pet_type|
+  category_name = pet_type[:name]
+  category = Category.where(name: category_name).first
+  pet_type[:types].each do |pet_type_name|
+  PetType.create!(
+    category_id: category.id,
+    name: pet_type_name
+  )
+end
+end

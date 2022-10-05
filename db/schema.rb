@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2022_09_29_065647) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "pet_types", charset: "utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pets", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -25,13 +32,6 @@ ActiveRecord::Schema.define(version: 2022_09_29_065647) do
     t.integer "gender"
     t.datetime "birthday"
     t.text "memo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "pets_types", charset: "utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
