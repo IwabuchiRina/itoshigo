@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get  "/"  => "top#index"
   get  "/mypage"  => "mypage#index"
   #get  "/signup"  => "signup#index"
+
+  resources :posts
 end
  
