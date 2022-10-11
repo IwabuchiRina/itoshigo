@@ -1,9 +1,8 @@
 <h2>日記を書く</h2>
 
 <%= form_with model: @post do |form| %>
-  <!-- Bootstrap は display: block と width: 100%をほぼすべてのフォームコントロールに適用しているので、フォームはデフォルトでは垂直に並びます。 -->
-  <!-- inputタグに、form-controlが設定する -->
-  <div class="mb-3">
+
+  <div class="mb-3 mb-4">
     <label for="title">タイトル</label>
     <input name="title" type="text" class="form-control" id="title" placeholder="タイトルを入力してください">
   </div>
@@ -19,5 +18,5 @@
       <option value="3">非公開</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">送信</button>
+  <button type="submit" class="btn btn-primary">保存</button>
 <% end %>

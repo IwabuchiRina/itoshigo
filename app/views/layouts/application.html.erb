@@ -49,6 +49,11 @@
           </ul>
         </div>
         <div class="col-8">
+        <% flash.each do |message_type, message| %>
+        <div class="alert alert-info" role="alert">
+          <%= message %>
+        </div>
+        <% end %>
         <%= yield %>
       </div>
     </div>

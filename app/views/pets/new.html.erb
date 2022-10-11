@@ -1,0 +1,47 @@
+<h2>ペット情報登録</h2>
+
+<%= form_with model: @pet do |form| %>
+  <div class="mb-3 mb-5">
+     <label for="name">なまえ</label>
+    <input name="name" type="text" class="form-control" id="name" placeholder="なまえを入力してください">
+  </div>
+  <div class="mb-3">
+    <label for="pet_type_id">種類</label>
+    <select name="pet_type_id" class="form-select" id="pet_type_id">
+      <% @pet_types.each do |pet_type| %>
+        <option value="<% pet_type.id %>"><%= pet_type.name %></option>
+        <% end %>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="gender">性別</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="gender-1">
+        <label class="form-check-label" for="gender-1">
+        オス
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="gender-2" checked>
+        <label class="form-check-label" for="gender-2">
+        メス
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="gender-3" checked>
+        <label class="form-check-label" for="gender-3">
+        不明
+        </label>
+      </div>
+  </div>
+    <div class="mb-3">
+     <label for="birthday">誕生日</label>
+    <input name="birthday" type="date" class="form-control" id="birthday" placeholder="誕生日を入力してください">
+  </div>
+
+  <div class="mb-3">
+    <label for="memo">メモ</label>
+    <textarea name="memo" class="form-control" id="memo" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">保存</button>
+<% end %>
