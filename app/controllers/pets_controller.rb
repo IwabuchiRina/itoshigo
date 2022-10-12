@@ -4,6 +4,6 @@ class PetsController < ApplicationController
   end
   def new
     @pet = Pet.new()
-    @pet_types = PetType.all
+    @pet_type = PetType.all
   end
 end
