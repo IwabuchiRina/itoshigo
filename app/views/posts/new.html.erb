@@ -2,7 +2,7 @@
 
 <%= form_with model: @post do |form| %>
 
-  <div class="mb-3 mb-4">
+  <div class="mb-3 mb-5">
     <label for="title">タイトル</label>
     <input name="title" type="text" class="form-control" id="title" placeholder="タイトルを入力してください">
   </div>
@@ -16,6 +16,15 @@
       <option value="1">下書き</option>  
       <option value="2">公開</option>
       <option value="3">非公開</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="pet_id">ペット</label>
+    <select name="pet_id" class="form-select" id="pet_id">
+      <option>選択なし</option>
+      <% @pets.each do |pet| %>
+        <option value="<%= pet.id %>"><%= pet.name %></option>
+        <% end %>
     </select>
   </div>
   <button type="submit" class="btn btn-primary">保存</button>

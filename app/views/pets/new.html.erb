@@ -9,26 +9,27 @@
     <label for="pet_type_id">種類</label>
     <select name="pet_type_id" class="form-select" id="pet_type_id">
       <% @pet_types.each do |pet_type| %>
-        <option value="<% pet_type.id %>"><%= pet_type.name %></option>
+        <option value="<%= pet_type.id %>"><%= pet_type.name %></option>
         <% end %>
     </select>
   </div>
+  <!--<input name="create_at" value="aaa" />-->
   <div class="mb-3">
     <label for="gender">性別</label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender" id="gender-1">
+        <input class="form-check-input" value="1" type="radio" name="gender" id="gender-1">
         <label class="form-check-label" for="gender-1">
         オス
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender" id="gender-2">
+        <input class="form-check-input" value="2" type="radio" name="gender" id="gender-2">
         <label class="form-check-label" for="gender-2">
         メス
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender" id="gender-3">
+        <input class="form-check-input" value="3" type="radio" name="gender" id="gender-3">
         <label class="form-check-label" for="gender-3">
         不明
         </label>

@@ -7,3 +7,24 @@
     <a href="/pets/new">ペット情報追加</a>
   </div>
 </div>
+
+<div class="row">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">なまえ</th>
+      <th scope="col">種類</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |pet| %>
+    <tr>
+      <th scope="row"><a href="<% edit_pet_path(pet.id) %>"><% pet.id %></th>
+      <td><% pet.name %></td>
+      <td><% pet.pet_type.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
