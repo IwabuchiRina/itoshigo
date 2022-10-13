@@ -40,16 +40,16 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-2">
           <ul>
             <li><a href="<%= new_post_path() %>">日記を書く</a></li>
             <li><a href="<%= edit_user_registration_path() %>">ユーザー情報変更</a></li>
             <li><a href="<%= pets_path() %>">ペット一覧</a></li>
-            <li><a href="#">カレンダー</a></li>
+            <li><a href="<%= calendar_path() %>">カレンダー</a></li>
             <li><a href="#">タスク管理</a></li>
           </ul>
         </div>
-        <div class="col-8">
+        <div class="col-10">
         <% flash.each do |message_type, message| %>
         <div class="alert alert-info" role="alert">
           <%= message %>

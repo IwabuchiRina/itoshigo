@@ -1,0 +1,6 @@
+<%= month_calendar do |date| %>
+  <%= date %>
+  <a href="/pets/1/edit">
+  <br>
+  <%= '誕生日' if date.strftime("%Y-%m-%d") == '2022-10-03' %>
+<% end %>
