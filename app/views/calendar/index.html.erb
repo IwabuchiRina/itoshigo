@@ -1,6 +1,26 @@
+<form method="get" action="/calendar" id="calendar-form">
+  <div class="mb-3">
+    <label for="pet_id">カレンダーの種類</label>
+    <select name="pet_id" class="form-select" id="pet_id">
+      <option value="">選択なし</option>
+      <% @pets.each do |pet| %>
+        <option value="<%= pet.id %>" <%= 'selected' if pet.id.to_s == params[:pet_id] %>><%= pet.name %></option>
+      <% end %>
+    </select>
+  </div>
+</form>
 <%= month_calendar do |date| %>
-  <%= date %>
-  <a href="/pets/1/edit">
+  <%= date.strftime("%d") %>
   <br>
-  <%= '誕生日' if date.strftime("%Y-%m-%d") == '2022-10-03' %>
-<% end %>
+  <% @events.each do |event| %>
+    <% if event[:date] == date.strftime("%Y-%m-%d") %>
+      <a href="<%= event[:url] %>"><%= event[:title] %></a><br>
+    <% end %>
+    <% end %>
+  <% end %>
+ 
+<script>
+  $('#pet-id').on('change' , function() {
+      $('#calendar-form').submit();
+  });
+</script>

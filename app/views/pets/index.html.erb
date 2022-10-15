@@ -20,9 +20,9 @@
   <tbody>
     <% @pets.each do |pet| %>
     <tr>
-      <th scope="row"><a href="<% edit_pet_path(pet.id) %>"><% pet.id %></th>
-      <td><% pet.name %></td>
-      <td><% pet.pet_type.name %></td>
+      <th scope="row"><a href="<%= edit_pet_path(pet.id) %>"><%= pet.id %></a></th>
+      <td><%= pet.name %></td>
+      <td><%= pet.pet_type.name %></td>
     </tr>
     <% end %>
   </tbody>
