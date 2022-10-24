@@ -12,10 +12,11 @@ class CalendarController < ApplicationController
       })
     end
     if pet_id.present?
+      pet = Pet.find(pet_id)
       @events.push({
         title: "#{pet.name}の誕生日",
         date: pet.birthday.strftime("%Y-%m-%d"),
-        url:nil
+        url:nil,
       })
     end
   end
