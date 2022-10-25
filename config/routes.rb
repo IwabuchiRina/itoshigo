@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   resources :pets
   resources :posts
+  resources :tasks
 
   get "/calendar" => "calendar#index"
+  #get "/tasks" => "task#index"
+  #get "/tasks/new" => "task#new"
+  #post "/tasks" => "task#create"
 end
  
