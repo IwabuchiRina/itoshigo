@@ -12,26 +12,26 @@
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">やること</th>
       <th scope="col">期日</th>
       <th scope="col">状況</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
-      <th scope="row"><a href="<%= edit_task_path(task.id) %>"><%= task.id %></a></th>
-      <td><%= task.name %></td>
-      <td><%= task.plan_date %></td>
+     <td><%= task.name %></td>
+      <td><%= task.plan_date.strftime("%Y-%m-%d") %></td>
       <td>
-        <%= if task.is_completed %>
+        <% if task.is_completed == 1 %>
           完了済み
         <% else %>
           <button>完了にする</button>
         <% end %>
       </td>
-    </tr>
+    <td><a href="<%= edit_task_path(task.id) %>">編集</a></td>
+    </th>s
     <% end %>
   </tbody>
 </table>
