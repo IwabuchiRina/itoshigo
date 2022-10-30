@@ -1,7 +1,7 @@
 <form method="get" action="/calendar" id="calendar-form">
   <div class="mb-3">
     <label for="pet_id">カレンダーの種類</label>
-    <select name="pet_id" class="form-select" id="pet_id">
+    <select name="pet_id" class="f orm-select" id="pet_id">
       <option value="">選択なし</option>
       <% @pets.each do |pet| %>
         <option value="<%= pet.id %>" <%= 'selected' if pet.id.to_s == params[:pet_id] %>><%= pet.name %></option>

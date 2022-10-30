@@ -1,0 +1,18 @@
+<h2>タスク情報編集</h2>
+
+<%= form_with model: @task do |form| %>
+  <div class="mb-3 mb-5">
+     <label for="name">やること</label>
+    <input name="name" type="text" class="form-control" id="name" placeholder="やることを入力してください" value="<%= @task.name %>">
+  </div>
+  <div class="mb-3">
+     <label for="plan_date">期日</label>
+    <input name="plan_date" type="date" class="form-control" id="plan_date" placeholder="期日を入力してください" value="<%= @task.plan_date.strftime("%Y-%m-%d") %>">
+  </div>
+
+  <div class="mb-3">
+    <label for="memo">メモ</label>
+    <textarea name="memo" class="form-control" id="memo" rows="3"><%= @task.memo %></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">保存</button>
+<% end %>

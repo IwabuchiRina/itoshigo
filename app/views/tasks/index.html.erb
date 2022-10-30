@@ -16,12 +16,13 @@
       <th scope="col">期日</th>
       <th scope="col">状況</th>
       <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
-     <td><%= task.name %></td>
+      <td><%= task.name %></td>
       <td><%= task.plan_date.strftime("%Y-%m-%d") %></td>
       <td>
         <% if task.is_completed == 1 %>
@@ -30,8 +31,9 @@
           <button>完了にする</button>
         <% end %>
       </td>
-    <td><a href="<%= edit_task_path(task.id) %>">編集</a></td>
-    </th>s
+       <td><a href="<%= task_path(task.id) %>">詳細</a></td>
+       <td><a href="<%= edit_task_path(task.id) %>">編集</a></td>
+    </th>
     <% end %>
   </tbody>
 </table>

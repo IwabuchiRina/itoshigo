@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2022_10_25_091832) do
   create_table "tasks", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
-    t.datetime "plan_id"
-    t.integer "is_comleted", limit: 1
+    t.datetime "plan_date"
+    t.integer "is_completed", limit: 1
     t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

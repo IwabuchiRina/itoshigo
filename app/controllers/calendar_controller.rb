@@ -17,7 +17,16 @@ class CalendarController < ApplicationController
         title: "#{pet.name}の誕生日",
         date: pet.birthday.strftime("%Y-%m-%d"),
         url:nil,
+      })  
+      else
+      tasks = Task.where(user_id: current_user.id)
+      tasks.each do |task| 
+        @events.push({
+          title: task.name,
+          date: task.plan_date.strftime("%Y-%m-%d"),
+          url: task_path(task.id),
       })
+      end
     end
   end
 end
