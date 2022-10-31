@@ -4,6 +4,10 @@ class PostsController < ApplicationController
     @pets = Pet.where(user_id: current_user.id)
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
     p = params.permit(
     :title,

@@ -2,10 +2,16 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.where(user_id: current_user.id)
   end
+
+  def show
+    @pet = Pet.find(params[:id])
+  end
+
   def new
     @pet = Pet.new()
     @pet_types = PetType.all
   end
+
   def create
     p = params.permit(
       :name,
@@ -19,10 +25,12 @@ class PetsController < ApplicationController
     flash[:success] = 'ペットを登録しました！'
     redirect_to pets_path()
   end
+
   def edit
     @pet = Pet.find(params[:id])
     @pet_types = PetType.all
   end
+
   def update
     @pet = Pet.find(params[:id])
     p = params.permit(
