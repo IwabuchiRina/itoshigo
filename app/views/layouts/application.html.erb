@@ -21,11 +21,14 @@
 
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <h1>itoshigo</h1>
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>itoshigo</h1>
+        <div class="flex-grow-1 d-flex justify-content-center">
+          <form method="get" action="/search" class="d-flex" style="width: 60%;">
+            <input type="text" name="q" class="flex-grow-1">
+            <button type="submit">検索</button>
+          </form>
         </div>
-        <div class="col-4">
         <div class="row">
         <% if user_signed_in? %>
           <div class="col-auto">
@@ -42,29 +45,29 @@
           <a href="/users/sign_in">ログイン</a>
         </div>
         <% end %>
-        </div>
-        </div>
       </div>
-      <div class="row">
-        <div class="col-2">
-          <ul>
-            <li><a href="<%= new_post_path() %>">日記を書く</a></li>
-            <li><a href="<%= edit_user_registration_path() %>">ユーザー情報変更</a></li>
-            <li><a href="<%= pets_path() %>">ペット一覧</a></li>
-            <li><a href="<%= calendar_path() %>">カレンダー</a></li>
-            <li><a href="<%= tasks_path() %>">タスク管理</a></li>
-          </ul>
-        </div>
-        <div class="col-10">
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <ul>
+          <li><a href="<%= new_post_path() %>">日記を書く</a></li>
+          <li><a href="<%= edit_user_registration_path() %>">ユーザー情報変更</a></li>
+          <li><a href="<%= pets_path() %>">ペット一覧</a></li>
+          <li><a href="<%= calendar_path() %>">カレンダー</a></li>
+          <li><a href="<%= tasks_path() %>">タスク管理</a></li>
+        </ul>
+      </div>
+      <div class="col-10">
         <% flash.each do |message_type, message| %>
-        <div class="alert alert-info" role="alert">
-          <%= message %>
-        </div>
+          <div class="alert alert-info" role="alert">
+            <%= message %>
+          </div>
         <% end %>
         <%= yield %>
       </div>
     </div>
 
-  </div>
+    </div>
   </body>
 </html>

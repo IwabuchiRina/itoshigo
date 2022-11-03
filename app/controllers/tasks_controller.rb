@@ -48,7 +48,7 @@ class TasksController < ApplicationController
 
   def complete
     @task = Task.find(params[:id])
-    @task.is_complete = 1
+    @task.is_completed = 1
     @task.save
     flash[:success] = 'タスクを完了しました！'
     redirect_to tasks_path()

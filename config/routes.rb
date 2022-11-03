@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :pets
   resources :posts
   resources :tasks
-  post '/task/:id/complete' => 'tasks#complete'
+  post '/tasks/:id/complete' => 'tasks#complete'
 
   get "/calendar" => "calendar#index"
+  get "/search" => "search#index"
 end
  

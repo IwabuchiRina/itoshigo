@@ -28,8 +28,8 @@
         <% if task.is_completed == 1 %>
           完了済み
         <% else %>
-          <%= form_with model: task do |form| %>
-            <button type ="submit" >完了にする</button>
+          <%= form_with url: "/tasks/#{task.id}/complete", method: 'post' do |form| %>
+            <button type="submit">完了にする</button>
           <% end %>
         <% end %>
       </td>
