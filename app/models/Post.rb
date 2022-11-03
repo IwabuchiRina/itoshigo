@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :pet
+  belongs_to :pet, optional: true
+  belongs_to :user
+  has_many :post_comments
 
   def status_text
     case self.status

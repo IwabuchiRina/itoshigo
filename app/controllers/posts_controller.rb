@@ -16,8 +16,19 @@ class PostsController < ApplicationController
     :pet_id
     )
     p[:user_id] = current_user.id
-    Post.create(p)
+    Post.create!(p)
     flash[:success] = '日記を保存しました！'
-    redirect_to "/mypage"
-    end
+    redirect_to "/calender"
+  end
+
+  def create_comment
+    p = params.permit(
+      :content,
+    )
+    p[:user_id] = current_user.id
+    p[:post_id] = params[:id]
+    PostComment.create(p)
+    flash[:success] = 'コメントを投稿しました！'
+    redirect_to post_url(params[:id]) 
+  end
 end

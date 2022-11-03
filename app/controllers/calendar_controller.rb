@@ -2,7 +2,7 @@ class CalendarController < ApplicationController
   def index
     @pets = Pet.where(user_id: current_user.id)
     pet_id = params[:pet_id]
-    posts = Post.where(pet_id: pet_id).where(status: 2)
+    posts = Post.where(user_id: current_user.id).where(pet_id: pet_id).where(status: 2)
     @events = []
     posts.each do |post|
       @events.push({
