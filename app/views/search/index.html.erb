@@ -1,0 +1,20 @@
+<% if @keyword.present? %>
+  <h2>「<%= @keyword %>」の検索結果</h2>
+<% else %>
+  <h2>全ての日記</h2>
+<% end %>
+
+<div class="d-flex justify-content-start" style="flex-wrap: wrap; gap: 20px;">
+<% @posts.each do |post| %>
+  <div class="card" style="width: 200px;">
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <% if post.pet.present? %>
+        <h6 class="card-subtitle mb-2 text-muted"><%= post.pet.name %></h6>
+      <% end %>
+      <p class="card-text"><%= post.content.slice(0, 20) %>...</p>
+      <a href="<%= post_path(post.id) %>" class="card-link">続きを見る</a>
+    </div>
+  </div>
+<% end %>
+</div>
