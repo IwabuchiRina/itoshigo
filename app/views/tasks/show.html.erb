@@ -1,46 +1,27 @@
-<h2>日記情報</h2>
+<h2>タスク情報</h2>
 
 <div class="row">
   <div class="col-3">
-    <p>ペット</p>
+    <p>やること</p>
   </div>
   <div class="col-9">
-    <%= if @post.pet.present? %>
-      <p><%= @post.pet.name %></p>
-    <%= else %>
-      <p>なし</p>
-    <%= end %>   
+    <p><%= @task.name %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-3">
-    <p>タイトル</p>
+    <p>期日</p>
   </div>
   <div class="col-9">
-    <p><%= @post.title %></p>    
+    <p><%= @task.plan_date.strftime("%Y-%m-%d") %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-3">
-    <p>本文</p>
+    <p>メモ</p>
   </div>
   <div class="col-9">
-    <p><%= @post.content %></p>    
+    <p><%= @task.memo %></p>
   </div>
 </div>
-<div class="row">
-  <div class="col-3">
-    <p>ステータス</p>
-  </div>
-  <div class="col-9">
-    <p><%= @post.status %></p>    
-  </div>
-</div>
-<div class="row">
-  <div class="col-3">
-    <p>作成日</p>
-  </div>
-  <div class="col-9">
-    <p><%= @post.created_at.strftime("%Y-%m-%d") %></p>    
-  </div>
-</div>
+  

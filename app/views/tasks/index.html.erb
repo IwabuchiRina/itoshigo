@@ -28,7 +28,9 @@
         <% if task.is_completed == 1 %>
           完了済み
         <% else %>
-          <button>完了にする</button>
+          <%= form_with model: task do |form| %>
+            <button type ="submit" >完了にする</button>
+          <% end %>
         <% end %>
       </td>
        <td><a href="<%= task_path(task.id) %>">詳細</a></td>

@@ -16,7 +16,7 @@ class CalendarController < ApplicationController
       @events.push({
         title: "#{pet.name}の誕生日",
         date: pet.birthday.strftime("%Y-%m-%d"),
-        url:nil,
+        url:pet_path(pet.id),
       })  
       else
       tasks = Task.where(user_id: current_user.id)

@@ -45,5 +45,13 @@ class TasksController < ApplicationController
     flash[:success] = 'タスク情報を変更しました！'
     redirect_to tasks_path()
   end
+
+  def complete
+    @task = Task.find(params[:id])
+    @task.is_complete = 1
+    @task.save
+    flash[:success] = 'タスクを完了しました！'
+    redirect_to tasks_path()
+  end
 end
    
