@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     p[:user_id] = current_user.id
     Post.create!(p)
     flash[:success] = '日記を保存しました！'
-    redirect_to "/calender"
+    redirect_to "/calendar"
   end
 
   def create_comment
