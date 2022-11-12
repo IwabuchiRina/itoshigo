@@ -16,8 +16,8 @@
   </p>
 
   <% @post.post_comments.each do |post_comment| %>
-    <p class="mb-0 fw-bold"><%= post_comments.user.name %></p>
-    <p><%= post_comments.content.content.gsub(/\n/,'<br>').html_safe %></p>
+    <p class="mb-0 fw-bold"><%= post_comment.user.name %></p>
+    <p><%= post_comment.content.gsub(/\n/,'<br>').html_safe %></p>
     <hr>
   <% end %>
 

@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>itoshigo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<a href="index.html" title="このカテゴリーのトップへジャンプします">カテゴリートップ</a>-->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,33 +20,22 @@
   </head>
 
   <body>
+    <!-- 全体 -->
     <div class="container">
+    <!-- 画像表示
+    <img src="/assets/main.JPG">-->
+      <!-- header -->
       <div class="d-flex justify-content-between align-items-center">
-        <h1>itoshigo</h1>
-        <div class="flex-grow-1 d-flex justify-content-center">
-          <form method="get" action="/search" class="d-flex" style="width: 50%;">
+        <!-- logo -->
+        <h1 class="logo"><a href="/">itoshigo</a></h1>
+        <!-- searchbox -->
+        <div class="d-flex justify-content-center">
+          <form method="get" action="/search" class="d-flex" style="width: 400px; height: 35px;">
             <input type="text" name="q" class="flex-grow-1">
-            <button type="submit">検索</button>
+            <button type="submit" class="btn">検索</button>
           </form>
         </div>
-        <div class="row" style="width: 200px;">
-        <% if user_signed_in? %>
-          <div class="col-auto">
-            <%= link_to('ログアウト',
-            destroy_user_session_path(),
-            method: :delete)
-            %>
-          </div>
-        <% else %>
-        <div class="col">
-          <a href="/users/sign_up">会員登録</a>
-        </div>
-        <div class="col">
-          <a href="/users/sign_in">ログイン</a>
-        </div>
-        <% end %>
       </div>
-    </div>
 
     <div class="row">
     <% if user_signed_in? %>
@@ -55,12 +44,23 @@
           <li><a href="<%= new_post_path() %>">日記を書く</a></li>
           <li><a href="<%= edit_user_registration_path() %>">ユーザー情報変更</a></li>
           <li><a href="<%= pets_path() %>">ペット一覧</a></li>
-          <li><a href="<%= calendar_path() %>">カレンダー</a></li>
           <li><a href="<%= tasks_path() %>">タスク管理</a></li>
+          <li><a href="<%= calendar_path() %>">カレンダー</a></li>
+          <li><%= link_to('ログアウト',
+            destroy_user_session_path(),
+            method: :delete)
+            %></li>
         </ul>
       </div>
+      <% else %>
+        <div class="col-2">
+        <ul>
+          <li><a href="/users/sign_up">会員登録</a></li>
+          <li><a href="/users/sign_in">ログイン</a></li>
+        </ul>
+        </div>
     <% end %>
-      <div class="col-auto">
+      <div class="col">
         <% flash.each do |message_type, message| %>
           <div class="alert alert-info" role="alert">
             <%= message %>

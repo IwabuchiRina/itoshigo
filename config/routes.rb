@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :pets
   resources :posts
-  post '/posts/:id/comment' => 'posts#cretae_comment'
+  post '/posts/:id/comment' => 'posts#create_comment'
   resources :tasks
   post '/tasks/:id/complete' => 'tasks#complete'
 
