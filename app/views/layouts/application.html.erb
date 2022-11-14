@@ -41,11 +41,11 @@
     <% if user_signed_in? %>
       <div class="col-2">
         <ul>
-          <li><a href="<%= new_post_path() %>">日記を書く</a></li>
-          <li><a href="<%= edit_user_registration_path() %>">ユーザー情報変更</a></li>
           <li><a href="<%= pets_path() %>">ペット一覧</a></li>
-          <li><a href="<%= tasks_path() %>">タスク管理</a></li>
+          <li><a href="<%= new_post_path() %>">日記を書く</a></li>
           <li><a href="<%= calendar_path() %>">カレンダー</a></li>
+          <li><a href="<%= tasks_path() %>">タスクリスト</a></li>
+          <li><a href="<%= edit_user_registration_path() %>">ユーザー情報変更</a></li>
           <li><%= link_to('ログアウト',
             destroy_user_session_path(),
             method: :delete)
